@@ -20,8 +20,8 @@ class TestModelLoading(unittest.TestCase):
         os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
         dagshub_url = "https://dagshub.com"
-        repo_owner = "vikashdas770"
-        repo_name = "YT-Capstone-Project"
+        repo_owner = "Rinesh73"
+        repo_name = "END_to_END_MLOPS_PROJECT"
 
         # Set up MLflow tracking URI
         mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
