@@ -210,5 +210,5 @@ cred.txt
 
 notebooks/
 data/
-models/
+# models/
 
