@@ -80,7 +80,7 @@
 ----------------------------------------------------------------------------------
 *********Setup required before moving to EKS deployment*********
 ----------------------------------------------------------------------------------
-* Run the following in PowerShell to see the AWS CLI path being used: Get-Command aws
+* Run the following in PowerShell to see the AWS CLI path being used: Get-Command aws / where aws (CMD)
 If the path points to your Anaconda environment (e.g., C:\Users\Personal\anaconda3\...), it’s a conflicting installation.
 
 * Uninstall Python-Based AWS CLI(Remove the conflicting AWS CLI from your Python environment): pip uninstall awscli
@@ -98,6 +98,7 @@ If the path points to your Anaconda environment (e.g., C:\Users\Personal\anacond
 
 
 * Download eksctl: Invoke-WebRequest -Uri "https://github.com/weaveworks/eksctl/releases/download/v0.158.0/eksctl_Windows_amd64.zip" -OutFile "eksctl.zip"
+Note - update the link as per latest version or add the file in System32 folder  -https://github.com/eksctl-io/eksctl/releases
 * Extract eksctl: Expand-Archive -Path .\eksctl.zip -DestinationPath .
 * Move the extracted eksctl.exe file to C:\Windows\System32 or any folder in your system PATH: Move-Item -Path .\eksctl.exe -Destination "C:\Windows\System32\eksctl.exe"
 ----------------------------------------------------------------------------------
@@ -152,7 +153,9 @@ curl http://a6bf6255d5f61470c9782b8955c98271-1409247973.us-east-1.elb.amazonaws.
 
 
 >>>>>>>>>> Prometheus Server Setup <<<<<<<<<<
-
+Namespace check:
+kubectl get namespaces
+kubectl get all -n monitoring  # To check whether Monitoring namespace exist
 50. Launch an Ubuntu EC2 Instance for Prometheus: t3.medium,  20GB of disk space (general-purpose SSD), Security Group: Allow inbound access on ports: 9090 for Prometheus Web UI, 22 for SSH access
 
 51. SSH into the EC2 Instance(optional or connect directly to ec2 server alternatively):
